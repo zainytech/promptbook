@@ -2,7 +2,7 @@ import React from 'react'
 
 const Feed = () => {
   return (
-    <div>Feed</div>
+    <div>Feed plus removing some issue with ci/cd deployments</div>
   )
 }
 
