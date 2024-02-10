@@ -1,3 +1,4 @@
+import Feed from '@Components/Feed';
 
 const Home = () => (
   <section className="w-full flex-center flex-col">
@@ -11,8 +12,8 @@ const Home = () => (
     <p className="desc text-center">
       PromptBook is an open-source AI prompting tool for modern world to  discover, create and share creative prompts.
     </p>
-    <p>checking if CI/CD Pipeline created or not</p>
-    {/* Feed */}
+    {/* <p>checking if CI/CD Pipeline created or not</p> */}
+    <Feed/>
   </section>
 )
 
