@@ -8,7 +8,7 @@ import { signIn, signOut, useSession, getProviders } from 'next-auth/react';
 const Nav = () => {
   // const isUserLoggedIn = true;
   const {data: session} = useSession();
-
+  
   const [providers,setProviders] = useState(null);
   const [toggleDropdown,setToggleDropdown] = useState(false);
 
@@ -40,6 +40,7 @@ const Nav = () => {
           </div>
         ): (
           <>
+          
           {providers && Object.values(providers).map((provider)=>(
             <button type="button" key={provider.name} onClick={()=>signIn(provider.id)} className='black_btn' >
               Sign In
@@ -88,3 +89,34 @@ const Nav = () => {
 }
 
 export default Nav
+
+// "use client";
+
+// import Link from "next/link";
+// import { signIn, signOut, useSession } from "next-auth/react";
+
+// export default function Nav() {
+//   const { status } = useSession();
+//   return (
+//     <div className="p-4 flex justify-between items-center shadow-md">
+//       <Link className="font-bold text-lg text-blue-700" href={"/"}>
+//         GTCoding
+//       </Link>
+//       {status === "authenticated" ? (
+//         <button
+//           onClick={() => signOut()}
+//           className="bg-slate-900 text-white px-6 py-2 rounded-md"
+//         >
+//           Sign Out
+//         </button>
+//       ) : (
+//         <button
+//           onClick={() => signIn("google")}
+//           className="bg-slate-900 text-white px-6 py-2 rounded-md"
+//         >
+//           Sign In
+//         </button>
+//       )}
+//     </div>
+//   );
+// }
