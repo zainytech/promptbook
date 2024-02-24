@@ -1,5 +1,5 @@
 import NextAuth from "next-auth/next";
-import GoogleProvider from "next-auth/providers/google";
+// import GoogleProvider from "next-auth/providers/google";
 import GitHubProvider from "next-auth/providers/github";
 import User from '@models/user';
 import {connectToDB} from '@utils/database';
@@ -45,7 +45,7 @@ const authOptions = {
                     await User.create({
                         email: profile.email,
                         username: profile.name.replace(" ","").toLowerCase(),
-                        image: profile.picture
+                        image: profile.avatar_url,
                     })
                 }
                 return true;
