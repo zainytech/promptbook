@@ -1,7 +1,6 @@
 import Link from 'next/link'
 
 const Form = ({type, post, setPost, submitting, handleSubmit}) => {
-  
   return (
     <section className='w-full max-w-full flex-start flex-col'>
       <h1 className='head_text text-left'>
@@ -15,7 +14,7 @@ const Form = ({type, post, setPost, submitting, handleSubmit}) => {
         <label>
           <span className='font-satoshi font-semibold text-base text-gray-700'>Your AI Prompt</span>
           <textarea 
-            vlaue={post.prompt} 
+            value={post.prompt} 
             onChange={(e)=> setPost({...post, prompt:e.target.value})} 
             placeholder = "Write your prompt here..." 
             required 
@@ -25,10 +24,10 @@ const Form = ({type, post, setPost, submitting, handleSubmit}) => {
         <label>
           <span className='font-satoshi font-semibold text-base text-gray-700'>
             Tag
-            <span className='font-normal'> (#product,#webdevelopment,#idea)</span>
+            <span className='font-normal'> (#product, #webdevelopment, #idea)</span>
           </span>
           <input 
-            vlaue={post.tag} 
+            value={post.tag} 
             onChange={(e)=> setPost({...post, tag:e.target.value})} 
             placeholder = "#tag" 
             required 
