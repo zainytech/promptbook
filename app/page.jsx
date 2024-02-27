@@ -12,6 +12,7 @@ const Home = () => (
     <p className="desc text-center">
       PromptBook is an open-source AI prompting tool for modern world to  discover, create and share creative prompts.
     </p>
+    <p>Note: This is an underdevelopment website which is being updsted using CI/CD pipelines by the developer.</p>
     {/* <p>checking if CI/CD Pipeline created or not</p> */}
     <Feed/>
   </section>

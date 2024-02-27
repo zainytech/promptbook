@@ -8,7 +8,7 @@ const PromptCardList = ({data,handleTagClick,searching})=>{
   const [filteredPosts, setFilteredPosts] = useState();
 
   useEffect(()=>{
-    const filteredData = data.filter((coin) => coin.tag.toLowerCase().includes(searching.toLowerCase()) || coin.prompt.toLowerCase().includes(searching.toLowerCase()) );
+    const filteredData = data.filter((posts) => posts.tag.toLowerCase().includes(searching.toLowerCase()) || posts.prompt.toLowerCase().includes(searching.toLowerCase()) || posts.creator.username.toLowerCase().includes(searching.toLowerCase()));
     setFilteredPosts(filteredData);
   },[data,searching])
 
@@ -50,6 +50,24 @@ const Feed = () => {
     fetchPosts();
   },[])
 console.log(posts)
+
+// let postsIdArray = [];
+// posts.map((postsid) => postsIdArray.push(postsid._id));
+// console.log("array of ids",postsIdArray);
+
+// useEffect(()=>{
+//   const fetchPostsUsername = async () =>{
+//     let response;
+//     postsIdArray.map(async(fetchusernames)=>{
+//       response = await fetch(`/api/user/${fetchusernames}/posts`);
+//     })
+//     const data = await response.json();
+//     setpostsUsername(data);
+//   }
+//   fetchPostsUsername();
+// },[postsIdArray])
+// console.log(postsUsername);
+
   return (
     <section className='feed'>
       <form className='relative w-full flex-center'>
