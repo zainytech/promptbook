@@ -33,13 +33,11 @@ const PromptCardList = ({data,handleTagClick,searching})=>{
 const Feed = () => {
   const [searchText,setSearchText] = useState('');
   const [posts,setposts] = useState([]);
-
   const handleSearchChange = (e) =>{
     // e.preventDefault();
     const inputValue =  e.target.value;
     setSearchText(inputValue);
   }
-
 
   useEffect(()=>{
     const fetchPosts = async () =>{
@@ -49,11 +47,11 @@ const Feed = () => {
     }
     fetchPosts();
   },[])
-console.log(posts)
 
 const handleTagClick = (tagname) =>{
   setSearchText(tagname);
 }
+
 
 // let postsIdArray = [];
 // posts.map((postsid) => postsIdArray.push(postsid._id));

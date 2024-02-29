@@ -9,19 +9,20 @@ const MyProfile = () => {
   const router = useRouter();
     const {data:session} = useSession();
     const [posts,setPosts] = useState([]);
+
     useEffect(()=>{
         const fetchPosts = async () =>{
           const response = await fetch(`/api/users/${session?.user.id}/posts`);
           const data = await response.json();
           setPosts(data);
         }
-
         if(session?.user.id) fetchPosts();
       },[])
 
     const handleEdit = (post) =>{
       router.push(`/update-prompt?id=${post._id}`)
     }
+    
     const handleDelete = async(post) =>{
       const hasConfirmed = confirm("Are you sure you want to delete this prompt?");
       if(hasConfirmed){
@@ -37,7 +38,7 @@ const MyProfile = () => {
         }
       }
     }
-    
+
   return (
     <Profile
         name="My"
