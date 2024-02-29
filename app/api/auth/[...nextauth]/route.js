@@ -28,7 +28,6 @@ const authOptions = {
             const sessionUser = await User.findOne({
                 email: session.user.email
             })
-            // maxAge= 30 * 24 * 60 * 60,
             session.user.id = sessionUser._id.toString();
             return session;
         },
@@ -39,7 +38,8 @@ const authOptions = {
                 const userExists = await User.findOne({
                     email:profile.email
                 });
-                
+                // console.log("userExists",userExists)
+
                 //if no, create new user
                 if(!userExists){
                     await User.create({

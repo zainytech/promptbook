@@ -35,7 +35,7 @@ const Feed = () => {
   const [posts,setposts] = useState([]);
 
   const handleSearchChange = (e) =>{
-    e.preventDefault();
+    // e.preventDefault();
     const inputValue =  e.target.value;
     setSearchText(inputValue);
   }
@@ -50,6 +50,10 @@ const Feed = () => {
     fetchPosts();
   },[])
 console.log(posts)
+
+const handleTagClick = (tagname) =>{
+  setSearchText(tagname);
+}
 
 // let postsIdArray = [];
 // posts.map((postsid) => postsIdArray.push(postsid._id));
@@ -74,7 +78,7 @@ console.log(posts)
         <input type="text" placeholder='Search for a tag or a username' value={searchText} onChange={handleSearchChange} required className='search_input peer'/>
       </form>
 
-      <PromptCardList data={posts} handleTagClick = {()=>{}} searching={searchText}/>
+      <PromptCardList data={posts} handleTagClick = {handleTagClick} searching={searchText}/>
     </section>
   )
 }
